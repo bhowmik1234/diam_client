@@ -12,6 +12,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log(import.meta.env.VITE_BACKEND_URL);
       const a = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/register`, { name: firstName+lastName, email, password });
       // Navigate to login after successful registration
       window.location.href = '/login';
