@@ -14,7 +14,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`https://diam-server.onrender.com/api/auth/login`, { email, password });
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/login`, { email, password });
       Cookies.set('token', response.data.token, {expires: 1});
       Cookies.set('userEmail', email, {expires: 1});
       localStorage.setItem('token', response.data.token);
