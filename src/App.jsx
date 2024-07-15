@@ -1,23 +1,27 @@
 import React, { Suspense, useEffect, useState } from 'react'
 import styles from "./style";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from './pages/Home';
-import Profile from './pages/Profile';
-import LoginPage from './components/Auth/LoginPage';
-import RegisterPage from './components/Auth/RegisterPage';
+import QRCodeGenerator from './components/QRCodeGenerator.jsx';
+import { lazy } from 'react';
+
 import { Navbar } from './components';
-import Dashboard from './pages/Dashboard.jsx';
-import TransactionForm from './pages/AddTransaction.jsx';
-import CryptoTracker from './pages/Crypto.jsx';
-import Loan from './pages/Loans.jsx';
 import Cookies from "js-cookie";
 import ProtectedRoute from './PrivateRoute.jsx';
 import NotFound from './pages/NotFound.jsx';
 import Loader from './components/Loader.jsx';
-import Bank from './pages/Bank.jsx';
-import MainTransaction from './pages/MainTransaction.jsx';
-import Payements from './pages/Payements.jsx';
-import QRCodeGenerator from './components/QRCodeGenerator.jsx';
+
+const Home = lazy(()=>import( './pages/Home'));
+const LoginPage = lazy(()=>import( './components/Auth/LoginPage'));
+const RegisterPage = lazy(()=>import( './components/Auth/RegisterPage'));
+const Loan = lazy(()=>import( './pages/Loans.jsx'));
+const CryptoTracker = lazy(()=>import( './pages/Crypto.jsx'));
+const Profile = lazy(()=>import( './pages/Profile'));
+const Dashboard = lazy(()=>import( './pages/Dashboard.jsx'));
+const TransactionForm = lazy(()=>import( './pages/AddTransaction.jsx'));
+const Payements = lazy(()=>import( './pages/Payements.jsx'));
+const Bank = lazy(()=>import( './pages/Bank.jsx'));
+const MainTransaction = lazy(()=>import( './pages/MainTransaction.jsx'));
+
 
 const App = () => {
   const [tt , setToken] = useState("");
